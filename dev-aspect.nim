@@ -48,9 +48,9 @@ type
 
 type 
   Player = object 
-   dtails: Details
-     location: RoomID
-     inventory: seq[Item]
+  details: Details
+    location: RoomID
+    inventory: seq[Item]
 
 
 type 
