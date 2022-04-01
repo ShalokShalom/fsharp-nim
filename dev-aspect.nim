@@ -1,33 +1,33 @@
 type 
   Details = object
-      name: string
-      description: string
+    name: string
+    description: string
 
 
 type 
   Item = object
-      details: Details
+    details: Details
 
 
 type 
   RoomIDCategory = enum
-      RoomID
+    RoomID
 
 
 type
   CategoryExit = enum
-      Passable
-      Locked
-      None
+    Passable
+    Locked
+    None
   Exit = object
-      case kind: CategoryExit
-      of Passable:
-          destination: RoomId
-      of LockedExit:
-          key: Item
-          next: ref Exit
-      of None:
-          discard
+    case kind: CategoryExit
+    of Passable:
+      destination: RoomId
+    of LockedExit:
+      key: Item
+      next: ref Exit
+    of None:
+      discard
 
 
 type 
