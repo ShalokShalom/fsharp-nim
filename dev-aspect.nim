@@ -1,62 +1,62 @@
 type 
-    Details = object
-        name: string
-        description: string
+  Details = object
+      name: string
+      description: string
 
 
 type 
-    Item = object
-        details: Details
+  Item = object
+      details: Details
 
 
 type 
-    RoomIDCategory = enum
-        RoomID
+  RoomIDCategory = enum
+      RoomID
 
 
 type
-    CategoryExit = enum
-        Passable
-        Locked
-        None
-    Exit = object
-        case kind: CategoryExit
-        of Passable:
-            destination: RoomId
-        of LockedExit:
-            key: Item
-            next: ref Exit
-        of None:
-            discard
+  CategoryExit = enum
+      Passable
+      Locked
+      None
+  Exit = object
+      case kind: CategoryExit
+      of Passable:
+          destination: RoomId
+      of LockedExit:
+          key: Item
+          next: ref Exit
+      of None:
+          discard
 
 
 type 
-    Exits = object
-        north: Exit
-        south: Exit
-        east: Exit
-        west: Exit
+  Exits = object
+    north: Exit
+    south: Exit
+    east: Exit
+    west: Exit
 
 
 type
-    Room = object
-        id: RoomID
-        details: Details
-        items: seq[Item]
-        exits: Exits
+  Room = object
+    id: RoomID
+    details: Details
+    items: seq[Item]
+    exits: Exits
 
 
 type 
-    Player = object 
-        details: Details
-        location: RoomID
-        inventory: seq[Item]
+  Player = object 
+   dtails: Details
+     location: RoomID
+     inventory: seq[Item]
 
 
 type 
-    World = object
-        rooms: Table[RoomId, Room] 
-        player: Player 
+  World = object
+    rooms: Table[RoomId, Room] 
+    player: Player 
 
 
 
